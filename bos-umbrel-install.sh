@@ -15,7 +15,7 @@ if [ "$1" == "--network" ]; then
   elif [ "$2" == "testnet" ]; then
     network=$2
   else
-    printf "ERROR: use --network [ testnet, regtest, signet, mainnet ]\n"
+    printf "ERROR: use --network testnet, regtest, signet or mainnet\n"
     exit 1
   fi
 fi 
