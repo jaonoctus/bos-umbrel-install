@@ -14,7 +14,7 @@ main() {
   local bos_path="$(pwd)/app-data/docker-bos"
   local bos_node_path="${bos_path}/umbrel"
   local bos_script_path="$(pwd)/bin/bos"
-
+  
   check_is_root() {
     if [[ "${EUID}" -ne 0 ]]; then
       printf "ERROR: you must run this script as root.\n\n$ sudo bash bos-umbrel-install.sh\n"
@@ -28,7 +28,7 @@ main() {
       printf "ERROR: run this script inside UMBREL folder only.\n"
       exit 1
     fi
-    if [[ ! -f "${cert_path}" || ! -f "${macarron_path}" ]]; then
+    if [[ ! -f "${cert_path}" || ! -f "${macaroon_path}" ]]; then
       printf "ERROR: make sure to start and configure LND first."
       exit 1
     fi
