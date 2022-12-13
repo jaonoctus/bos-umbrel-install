@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # This script will install BOS on Umbrel
-# version:  0.1.0
+# version:  0.1.1
 # author:   jaonoctus <jaonoctus@protonmail.com>
 
 set -eo pipefail

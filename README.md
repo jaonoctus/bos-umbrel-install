@@ -8,17 +8,17 @@ Set up BOS on Umbrel
 1. Download the script under Umbrel folder (usually `~/umbrel`)
 
 ```bash
-curl -L https://github.com/jaonoctus/bos-umbrel-install/releases/download/v0.1.0/bos-umbrel-install.sh -o bos-umbrel-install.sh
+curl -L https://github.com/jaonoctus/bos-umbrel-install/releases/download/v0.1.1/bos-umbrel-install.sh -o bos-umbrel-install.sh
 ```
 
 2. Verify the script (optional)
 
 ```bash
 # download checksum
-curl -L https://github.com/jaonoctus/bos-umbrel-install/releases/download/v0.1.0/SHA256SUM -o SHA256SUM
+curl -L https://github.com/jaonoctus/bos-umbrel-install/releases/download/v0.1.1/SHA256SUM -o SHA256SUM
 
 # download signature
-curl -L https://github.com/jaonoctus/bos-umbrel-install/releases/download/v0.1.0/SHA256SUM.asc -o SHA256SUM.asc
+curl -L https://github.com/jaonoctus/bos-umbrel-install/releases/download/v0.1.1/SHA256SUM.asc -o SHA256SUM.asc
 
 # import my key
 gpg --keyserver keyserver.ubuntu.com --recv-keys 6B457D060ACE363C9D67D8E6782C165A293D6E18
