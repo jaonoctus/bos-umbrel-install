@@ -28,7 +28,7 @@ main() {
       printf "ERROR: run this script inside UMBREL folder only.\n"
       exit 1
     fi
-    if [[ ! -f "${cert_path}" || ! -f "${macarron_path}" ]]; then
+    if [[ ! -f "${cert_path}" || ! -f "${macaroon_path}" ]]; then
       printf "ERROR: make sure to start and configure LND first."
       exit 1
     fi
