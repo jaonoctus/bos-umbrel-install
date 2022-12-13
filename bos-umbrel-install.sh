@@ -8,7 +8,7 @@ set -eo pipefail
 
 # Verify the network type 
 # that the user has set.
-network="mainnet"
+local network="mainnet"
 if [ "$1" == "--network" ]; then
   if [ "$2" == "regtest" ]; then
     network=$2
