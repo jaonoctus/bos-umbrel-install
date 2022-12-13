@@ -8,11 +8,10 @@ set -eo pipefail
 
 # Verify the network type 
 # that the user has set.
-local network="mainnet"
+network="mainnet"
+networks=("mainnet" "testnet" "regtest" "signet")
 if [ "$1" == "--network" ]; then
-  if [ "$2" == "regtest" ]; then
-    network=$2
-  elif [ "$2" == "testnet" ]; then
+  if [[ ${networks[*]} =~ $2 ]]; then
     network=$2
   else
     printf "ERROR: use --network testnet, regtest, signet or mainnet\n"
@@ -28,7 +27,7 @@ main() {
   local bos_path="$(pwd)/app-data/docker-bos"
   local bos_node_path="${bos_path}/umbrel"
   local bos_script_path="$(pwd)/bin/bos"
-
+  
   check_is_root() {
     if [[ "${EUID}" -ne 0 ]]; then
       printf "ERROR: you must run this script as root.\n\n$ sudo bash bos-umbrel-install.sh\n"
