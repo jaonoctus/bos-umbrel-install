@@ -6,22 +6,35 @@
 
 set -eo pipefail
 
+# Verify the network type 
+# that the user has set.
+network="mainnet"
+networks=("mainnet" "testnet" "regtest" "signet")
+if [ "$1" == "--network" ]; then
+  if [[ ${networks[*]} =~ $2 ]]; then
+    network=$2
+  else
+    printf "ERROR: use --network testnet, regtest, signet or mainnet\n"
+    exit 1
+  fi
+fi 
+
 main() {
   local umbrel_env_path="$(pwd)/.env"
   local umbrel_start_script_path="$(pwd)/scripts/start"
   local cert_path="$(pwd)/app-data/lightning/data/lnd/tls.cert"
-  local macaroon_path="$(pwd)/app-data/lightning/data/lnd/data/chain/bitcoin/mainnet/admin.macaroon"
+  local macaroon_path="$(pwd)/app-data/lightning/data/lnd/data/chain/bitcoin/${network}/admin.macaroon"
   local bos_path="$(pwd)/app-data/docker-bos"
   local bos_node_path="${bos_path}/umbrel"
   local bos_script_path="$(pwd)/bin/bos"
-
+  
   check_is_root() {
     if [[ "${EUID}" -ne 0 ]]; then
       printf "ERROR: you must run this script as root.\n\n$ sudo bash bos-umbrel-install.sh\n"
       exit 1
     fi
   }
-
+  
   check_is_under_umbrel() {
     # assert that those files exists
     if [[ ! -f "${umbrel_env_path}" || ! -f "${umbrel_start_script_path}" ]]; then
